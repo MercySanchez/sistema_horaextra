@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class userAdministradorDefault extends Seeder
+class userEmpleadoDefault extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,11 +13,17 @@ class userAdministradorDefault extends Seeder
     {
     App\User::create([
       'name'=>'empleadoprueba',
+      'rol' =>'empleado',
       'password'=>bcrypt('123456'),
       'username'=>'EMPLEADO_DISATEL',
     ]);
     
-    
+    DB::table('users')->insert(['name'=>'empleadoprueba2',
+                                'rol' =>'empleado',
+                                'username'=>'EMPLEADO_DISATEL',
+                                'password'=>bcrypt('123456')
+                                
+  ]);
 
     }
 }
