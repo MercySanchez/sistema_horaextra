@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Bienvenido Empleado: {{ Auth::user()->username }}
+                    Bienvenido: {{ Auth::user()->username }}
                 </div>
             </div>
         </div>

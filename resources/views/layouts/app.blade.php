@@ -26,7 +26,7 @@
         @include('modulos.cabecera')
     </section>
 
-    <section class="engine"><a rel="external">Disatel</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header4-6" style="background-image: url({{ ('img/fondo.jpg')}}");>
+    <section class="engine"><a rel="external">Disatel</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header4-6" style="background-image: url({{ ('img/fondo2.jpg')}}");>
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
         @yield('content')
     </div>
