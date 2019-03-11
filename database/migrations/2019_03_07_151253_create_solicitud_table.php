@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSolicitudesTable extends Migration
+class CreateSolicitudTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateSolicitudesTable extends Migration
      */
     public function up()
     {
-        Schema::create('solicitudes', function (Blueprint $table) {
+        Schema::create('solicitud', function (Blueprint $table) {
             $table->increments('idSolicitud');
             $table->string('comentarioSolicitud');
-            $table->string('estadoSolicitud')->default('Pendiente');
             $table->time('horaInicio');
             $table->time('horaFin');
-            $table->date('fechaActual');
-            $table->integer('idDepartamento')->unsigned();
-            $table->foreign('idDepartamento')->references('idDepartamento')->on('departamentos');
-            $table->integer('idEmpleado')->unsigned();
-            $table->foreign('idEmpleado')->references('idEmpleado')->on('empleados');
+            $table->date('fecha');
+            $table->integer('estadoSolicitud')->default(0); //0 - pendiente, 1 - Aprobado, 2 - Rechazado
+                       
+            $table->integer('idUsuario')->unsigned();
+            $table->foreign('idUsuario')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateSolicitudesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solicitudes');
+        Schema::dropIfExists('solicitud');
     }
 }

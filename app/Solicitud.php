@@ -13,11 +13,13 @@ class Solicitud extends Model
      * @var array
      */
     protected $fillable = [
-        'comentarioSolicitud', 'estadoSolicitud', 
-        'horaInicio', 'horaFin', 'fechaActual',
-        'idDepartamento',
+        'idUsuario','comentarioSolicitud', 'estadoSolicitud', 
+        'horaInicio', 'horaFin', 'fecha',
+        
     ];
 
-    public $timestamps = false;
+    protected $table = 'solicitud';
     protected $primaryKey = 'idSolicitud';
+    public $timestamps = false;
+    
 }

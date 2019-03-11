@@ -12,11 +12,11 @@ class userEmpleadoDefault extends Seeder
     public function run()
     {
     App\User::create([
-      'name'=>'EMPLEADO_DISATEL',
-      'rol' =>'empleado',
-      'username'=>'empleado1',
+      'nombreEmpleado'=>'Juan perez',
+      'rol' =>0, //0 -empleado, 1-Administrador, 2-Gerente
+      'username'=>'jperez2',
       'password'=>bcrypt('empleadodisatel'),
-     
+      'idDepartamento' => 1    
     ]);
     
     
