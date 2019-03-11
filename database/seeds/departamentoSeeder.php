@@ -15,6 +15,11 @@ class departamentoSeeder extends Seeder
       'nombreDepartamento'=>'Ventas',
       'descripcionDepartamento' => 'Departamento de ventas'   
     ]);
+
+      App\Departamento::create([
+      'nombreDepartamento'=>'Contabilidad',
+      'descripcionDepartamento' => 'Departamento de Contabilidad'   
+    ]);
       	 
     }
 }
