@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/crearSolicitud', 'SolicitudController@create')->name('crearSolicitud');
+
