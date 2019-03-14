@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/crearSolicitud', 'SolicitudController@create')->name('crearSolicitud');
+/*Empleados*/
+Route::get('/home', 'SolicitudController@home')->name('home');
+Route::resource('/admin_solicitudes','SolicitudController');
 

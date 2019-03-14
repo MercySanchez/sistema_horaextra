@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Solicitud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class SolicitudController extends Controller
 {
@@ -12,9 +14,19 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     private $path = '/admin_solicitudes';
+
+    public function __construct(){
+     
+    }
+
     public function index()
     {
         //
+        $solicitud = Solicitud::all();
+
+        return view($this->path.'/admin_solicitudes')->with('solicitudes',$solicitudes);
     }
 
     /**
@@ -24,7 +36,16 @@ class SolicitudController extends Controller
      */
     public function create()
     {
-        return view('crearSolicitud');
+        return view($this->path.'/crearSolicitud');
+    }
+
+
+    public function home()
+
+    {
+
+        return view('home');
+
     }
 
     /**
@@ -36,6 +57,18 @@ class SolicitudController extends Controller
     public function store(Request $request)
     {
         //
+        $solicitud = new Solicitud();
+
+         $solicitud->comentarioSolicitud=$request->comentarioSolicitud;
+         $solicitud->estadoSolicitud    =$request->estadoSolicitud;
+         $solicitud->horaInicio         =$request->horaInicio;
+         $solicitud->horaFin            =$request->horaFin;
+         $solicitud->fecha              =$request->fecha;
+
+         $solicitud->idUsuario = $request->idUsuario;
+         $solicitud->save();
+
+        return redirect($this->path);
     }
 
     /**
@@ -60,6 +93,7 @@ class SolicitudController extends Controller
         //
     }
 
+    
     /**
      * Update the specified resource in storage.
      *
